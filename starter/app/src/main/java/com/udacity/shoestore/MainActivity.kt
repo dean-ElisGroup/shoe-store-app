@@ -2,6 +2,7 @@ package com.udacity.shoestore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.udacity.shoestore.R
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
