@@ -47,11 +47,12 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginStart="28dp"
                 android:layout_marginEnd="28dp"
-                android:background="@drawable/rounded_corners"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/roboto"
                 android:text="@string/store_title"
                 android:textAlignment="center"
                 android:textColor="#43A047"
+                android:textFontWeight="600"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toStartOf="@+id/shoeRackImage"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -64,6 +65,7 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center_horizontal"
                 android:text="@string/login_text"
+                android:textFontWeight="800"
                 android:textSize="@dimen/login_text_szie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,10 +87,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/field_margins"
-                android:background="@drawable/rounded_corners"
+                android:background="@color/design_default_color_background"
                 android:ems="10"
                 android:hint="@string/email_hint"
-                android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
                 android:paddingStart="@dimen/field_margins"
@@ -96,7 +97,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="TextContrastCheck"
-                tools:layout_editor_absoluteY="146dp" />
+                tools:layout_editor_absoluteY="146dp"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/password_label"
@@ -112,9 +114,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/field_margins"
-                android:background="@drawable/rounded_corners"
+                android:background="@color/design_default_color_on_primary"
                 android:ems="10"
                 android:hint="@string/hint_password"
+
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:minHeight="48dp"

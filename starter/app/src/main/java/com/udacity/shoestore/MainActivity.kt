@@ -2,8 +2,6 @@ package com.udacity.shoestore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
@@ -22,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.myNavHostFragment)
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.hide()
         setupActionBarWithNavController(this, navController)
         supportFragmentManager.findFragmentById(R.id.myNavHostFragment)
 

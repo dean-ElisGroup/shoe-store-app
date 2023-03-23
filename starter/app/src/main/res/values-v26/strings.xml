@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="instructions_title">Shop with us</string>
+    <string name="instructions_sub_title">Use the button below to start shopping with us. You\'ll find all our collections next!</string>
+    <string name="choose_a_shoe">Choose your shoe</string>
+    <string name="shoe_store_text">Shoe Store</string>
+    <string name="add_shoe_text">Add shoe</string>
+    <string name="shoe_list">%1$s %2$s %3$.1f %4$s</string>
+    <string name="logout_menu_text">Logout</string>
+    <string name="shoe_name_text">Show name</string>
+    <string name="shoe_company_text">Shoe company</string>
+    <string name="shoe_size_text">Shoe size</string>
+    <style name="shoe_description_text">Shoe description</style>
+</resources>

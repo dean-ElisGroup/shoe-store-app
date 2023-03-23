@@ -30,10 +30,10 @@
         tools:layout="@layout/fragment_instruction">
         <action
             android:id="@+id/action_instruction2_to_showList"
-            app:destination="@id/showList" />
+            app:destination="@id/shoeList" />
     </fragment>
     <fragment
-        android:id="@+id/showList"
+        android:id="@+id/shoeList"
         android:name="com.udacity.shoestore.ShowList"
         android:label="fragment_shoe_list"
         tools:layout="@layout/fragment_shoe_list">
@@ -45,5 +45,9 @@
         android:id="@+id/shoeDetail"
         android:name="com.udacity.shoestore.ShoeDetail"
         android:label="fragment_shoe_detail"
-        tools:layout="@layout/fragment_shoe_detail" />
+        tools:layout="@layout/fragment_shoe_detail" >
+        <action
+            android:id="@+id/action_shoeDetail_to_shoeList"
+            app:destination="@id/shoeList" />
+    </fragment>
 </navigation>

@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Instruction">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".Instruction">
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/choose_shoe_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="#C0CA33">
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/shoe_store_text"
+                style="@style/welcome_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/shoe_store_text"
+                tools:ignore="TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/placeholder_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/shoes_at_anandshoesofstamford_1000x"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/shop_with_us_text"
+                style="@style/welcome_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions_title"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/Instructions_text"
+                style="@style/sub_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions_sub_title"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/choose_shoe_button"
+            style="@style/start_shopping_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/choose_a_shoe"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/content"
+            tools:ignore="TextContrastCheck" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

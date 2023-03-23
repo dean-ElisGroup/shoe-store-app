@@ -16,10 +16,15 @@ class Login : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         with(binding) {
             loginButton.setOnClickListener{
+                view?.let { it ->
+                    Navigation.findNavController(it).navigate(R.id.action_login_to_welcome2)
+                }
+            }
+            signupButton.setOnClickListener {
                 view?.let { it ->
                     Navigation.findNavController(it).navigate(R.id.action_login_to_welcome2)
                 }

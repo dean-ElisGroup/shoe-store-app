@@ -1,59 +1,68 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.view.*
+import android.widget.TextView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.findNavController
+import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.models.ShoeViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ShowList.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShowList : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentShoeListBinding
+    private lateinit var viewModel: ShoeViewModel //by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+        viewModel = ViewModelProvider(requireActivity())[ShoeViewModel::class.java]
+        binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
+        binding.fabAddShoe.setOnClickListener {
+            val action = ShowListDirections.actionShowListToShoeDetail()
+            findNavController().navigate(action)
+        }
+
+        val linearLayout = binding.showProduct
+        viewModel.shoelist.value?.forEach { shoe ->
+            val textView = TextView(context)
+            textView.text =
+                getString(R.string.shoe_list, shoe.company, shoe.name, shoe.size, shoe.description)
+            linearLayout.addView(textView)
+
+        }
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ShowList.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ShowList().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(
+            object : MenuProvider {
+                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                    menuInflater.inflate(R.menu.logout_menu, menu)
                 }
-            }
+
+                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                    return NavigationUI.onNavDestinationSelected(
+                        menuItem,
+                        requireView().findNavController()
+                    )
+                }
+            },
+            viewLifecycleOwner, Lifecycle.State.RESUMED
+        )
+        super.onViewCreated(view, savedInstanceState)
     }
+
+
 }
