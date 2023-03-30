@@ -3,6 +3,7 @@ package com.udacity.shoestore
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -13,7 +14,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-
 
 class ShowList : Fragment() {
 
@@ -31,7 +31,6 @@ class ShowList : Fragment() {
             val action = ShowListDirections.actionShowListToShoeDetail()
             findNavController().navigate(action)
         }
-
         val linearLayout = binding.showProduct
         viewModel.shoelist.value?.forEach { shoe ->
             val textView = TextView(context)
@@ -39,9 +38,9 @@ class ShowList : Fragment() {
                 getString(R.string.shoe_list, shoe.company, shoe.name, shoe.size, shoe.description)
             linearLayout.addView(textView)
 
+            (activity as AppCompatActivity).supportActionBar?.show()
         }
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,7 +50,6 @@ class ShowList : Fragment() {
                 override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                     menuInflater.inflate(R.menu.logout_menu, menu)
                 }
-
                 override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                     return NavigationUI.onNavDestinationSelected(
                         menuItem,
@@ -63,6 +61,4 @@ class ShowList : Fragment() {
         )
         super.onViewCreated(view, savedInstanceState)
     }
-
-
 }

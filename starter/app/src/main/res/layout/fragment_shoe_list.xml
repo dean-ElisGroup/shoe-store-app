@@ -6,8 +6,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
         tools:context=".ShoeList">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
             android:id="@+id/scroll"
@@ -21,10 +35,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="SpeakableTextPresentCheck">
+
             <LinearLayout
                 android:id="@+id/show_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/field_margins"
+                android:layout_marginRight="@dimen/field_margins"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -35,9 +52,11 @@
             android:id="@+id/fab_add_shoe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/field_margins"
+            android:layout_marginBottom="@dimen/field_margins"
             android:contentDescription="@string/add_shoe_text"
             android:src="@drawable/ic_add"
-            app:backgroundTint="@color/colorAccent"
+            app:backgroundTint="#1E88E5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

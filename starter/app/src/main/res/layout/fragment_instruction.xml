@@ -6,18 +6,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Instruction">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
         <LinearLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="#C0CA33"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/choose_shoe_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:background="#C0CA33">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/shoe_store_text"
@@ -32,7 +51,8 @@
                 android:id="@+id/placeholder_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                app:srcCompat="@drawable/shoes_at_anandshoesofstamford_1000x"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/sneakers_2_1413753"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -48,6 +68,9 @@
                 style="@style/sub_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/instructions_sub_title"
                 tools:ignore="TextContrastCheck" />
 
