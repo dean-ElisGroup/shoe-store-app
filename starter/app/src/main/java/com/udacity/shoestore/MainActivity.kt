@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.myNavHostFragment)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.hide()
+
         setupActionBarWithNavController(this, navController)
         supportFragmentManager.findFragmentById(R.id.myNavHostFragment)
 

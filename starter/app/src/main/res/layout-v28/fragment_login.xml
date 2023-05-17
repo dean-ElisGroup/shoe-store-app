@@ -129,7 +129,7 @@
 
             <Button
                 android:id="@+id/login_button"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/field_margins"
                 android:background="#039BE5"
@@ -140,7 +140,7 @@
 
             <Button
                 android:id="@+id/signup_button"
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/field_margins"
                 android:background="#C0CA33"
